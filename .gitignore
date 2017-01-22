@@ -1,6 +1,5 @@
 node_modules
 .idea
-*.js
 *.map
 typings
 # Windows image file caches
