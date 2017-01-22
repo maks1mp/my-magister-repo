@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right" ng-click="watchUrl($event)">
+                <li role="presentation" ng-class="{'active': pages.main}"><a ui-sref="admin_panel.main">Головна</a></li>
+                <li role="presentation" ng-class="{'active': pages.courses}"><a ui-sref="admin_panel.courses" href="#">Курси</a></li>
+                <li role="presentation" ng-class="{'active': pages.tests}"><a ui-sref="admin_panel.tests" href="#">Тести</a></li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">Панель адміністратора</h3>
+    </div>
+
+    <div ui-view="main"></div>
+
+    <footer class="footer">
+        <p>© 2016 НУХТ АКС</p>
+    </footer>
+
+</div>

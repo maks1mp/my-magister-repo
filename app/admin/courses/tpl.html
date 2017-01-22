@@ -1,0 +1,29 @@
+<h1> Теми курсів: </h1>
+
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Назва</th>
+        <th>Відео</th>
+        <th>Лекція</th>
+        <th>Можна проходити</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="course in courses">
+        <th>{{course.id}}</th>
+        <td>{{course.title}}</td>
+        <td>{{course.video}}</td>
+        <td>{{course.html}}</td>
+        <td><input type="checkbox" ng-model="course.is_hidden" disabled/></td>
+        <td>
+            <a ng-click="editCourse($event, course)">
+                Редагувати
+            </a>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
