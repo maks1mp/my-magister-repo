@@ -1,1 +1,22 @@
-<h1>template tests</h1>
+<h1>Тестові завдання для курсів</h1>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Назва</th>
+        <th>Наявність тесту</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="course in courses">
+        <th>{{course.ID}}</th>
+        <td>{{course.title}}</td>
+        <td>-</td>
+        <td>
+            <a href="#" ng-click="add_test($event, course)">Додати тест</a>
+        </td>
+    </tr>
+
+    </tbody>
+</table>

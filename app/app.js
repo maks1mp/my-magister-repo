@@ -61,4 +61,16 @@ var app = angular.module('app', ['ui.router'])
                     course_data: null
                 }
             })
+            .state('admin_panel.create_tests', {
+                url: '/edit_test',
+                views: {
+                    'main@admin_panel': {
+                        templateUrl: '/app/admin/test_edit/tpl.html',
+                        controller: 'test_edit'
+                    }
+                },
+                params: {
+                    test_for: null
+                }
+            })
     });

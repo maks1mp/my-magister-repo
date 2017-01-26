@@ -14,12 +14,9 @@ app.controller('admin_courses', function($scope, services, $state){
             $scope.add_course ? $scope.add_course = false : $scope.add_course = true;
         };
         $scope.add_to_base = function () {
-            console.log($scope.course);
-            return;
             if ($scope.course.title) {
                 services.createCourse($scope.course);
             }
-
         };
 
         function isEmpty(field, len){

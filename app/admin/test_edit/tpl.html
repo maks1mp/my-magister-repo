@@ -1,0 +1,32 @@
+<h1>Тест до курсу: {{course_data.title}}</h1>
+
+<h2 class="text-center" ng-if="!questions.length">Питання відсутні</h2>
+
+<div ng-repeat="q in questions">
+    <h3>Питання #{{$index+1}}: <br/> <textarea type="text" ng-model="q.title" class="editable" style="min-height: 30px;" placeholder="Текст питання"></textarea></h3>
+    <hr/>
+    <h2>Варіанти відповідей:</h2>
+    <ul>
+        <li ng-repeat="variant in q.variants">
+            <label>
+                <input type="checkbox" ng-model="variant.status"/> {{variant.title}}
+            </label>
+        </li>
+        <li class="list-unstyled">
+            <input type="text" class="form-control" placeholder="Текст варіанта відповіді"/>
+            <br/>
+            <button class="btn btn-primary" ng-click="addVariant($index, $event)">Додати варіант відповіді</button>
+        </li>
+    </ul>
+    <hr/>
+
+    <hr/>
+</div>
+<br/>
+<button class="btn btn-primary btn-lg btn-block" ng-click="addQuestion()">Додати питання</button>
+<br/>
+<button class="btn btn-success btn-lg btn-block" ng-click="saveChanges()">Зберегти зміни</button>
+<br/>
+<button type="button" class="btn btn-danger btn-lg btn-block" ng-click="back()">До списку тестів</button>
+<br/>
+<br/>
