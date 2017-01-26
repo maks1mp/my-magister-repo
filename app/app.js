@@ -49,4 +49,16 @@ var app = angular.module('app', ['ui.router'])
                     }
                 }
             })
+            .state('admin_panel.edit_course', {
+                url: '/edit_course',
+                views: {
+                    'main@admin_panel': {
+                        templateUrl: '/app/admin/course_edit/tpl.html',
+                        controller: 'course_editor'
+                    }
+                },
+                params: {
+                    course_data: null
+                }
+            })
     });

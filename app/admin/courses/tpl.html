@@ -1,29 +1,66 @@
-<h1> Теми курсів: </h1>
 
+<section ng-if="add_course">
+    <h1>Додати курс</h1>
+    <h2>
+        <label>
+            <span class="pull-left">Назва курсу:</span><input style="width: auto" type="text" class="form-control pull-left" ng-model="course.title"/>
+        </label>
+    </h2>
+    <hr/>
+    <label class="" for="inputHelpBlock">Посилання на відео курсу</label>
+    <input type="text" id="inputHelpBlock" class="form-control" aria-describedby="helpBlock" ng-model="course.video">
+    <hr/>
+    <h3>Текст лекції</h3>
+    <textarea name="" id="" ng-model="course.html" class="editable">
 
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>Назва</th>
-        <th>Відео</th>
-        <th>Лекція</th>
-        <th>Можна проходити</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="course in courses">
-        <th>{{course.id}}</th>
-        <td>{{course.title}}</td>
-        <td>{{course.video}}</td>
-        <td>{{course.html}}</td>
-        <td><input type="checkbox" ng-model="course.is_hidden" disabled/></td>
-        <td>
-            <a ng-click="editCourse($event, course)">
-                Редагувати
-            </a>
-        </td>
-    </tr>
+    </textarea>
+    <hr/>
+    <div>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox1" ng-model="course.is_hidden"> Можна проходити
+        </label>
+    </div>
+    <hr/>
+    <div>
+        <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="add_to_base()">Зберегти</button>
+    </div>
+    <br/>
+    <div>
+        <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="add_course_an()">Повернутися до списку курсів</button>
+    </div>
+</section>
 
-    </tbody>
-</table>
+<section ng-if="!add_course">
+    <h1> Теми курсів: </h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Назва</th>
+            <th>Відео</th>
+            <th>Лекція</th>
+            <th>Можна проходити</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="course in courses">
+            <th>{{course.id}}</th>
+            <td>{{course.title}}</td>
+            <td>{{course.video}}</td>
+            <td>{{course.html}}</td>
+            <td><input type="checkbox" ng-model="course.is_hidden" disabled/></td>
+            <td>
+                <a ng-click="editCourse($event, course)">
+                    Редагувати
+                </a>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <div>
+        <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="add_course_an()">Додаты новый курс</button>
+    </div>
+    <br/>
+</section>

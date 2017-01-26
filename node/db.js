@@ -77,6 +77,16 @@ class MySQL {
             });
         });
     }
+
+    static editCourse(data){
+        return new Promise((resolve, reject)=>{
+            sql.connection.query(`UPDATE courses SET title="${data.title}", video="${data.video}", html="${data.html}", is_hidden="${data.is_hidden}" WHERE ID=${data.ID}`, (err, result)=>{
+                if (result) {
+                    resolve();
+                } else reject();
+            });
+        });
+    }
 }
 
 const sql = new MySQL('localhost', 'root');

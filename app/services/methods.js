@@ -25,9 +25,18 @@ app.factory('services', function($http){
         });
     };
 
+    var editCourse = function(data) {
+        return $http({
+            url: '/edit_course',
+            method: 'POST',
+            data: data
+        })
+    };
+
     return {
         login: login,
         getCourses: getCourses,
-        createCourse: createCourse
+        createCourse: createCourse,
+        editCourse: editCourse
     }
 });

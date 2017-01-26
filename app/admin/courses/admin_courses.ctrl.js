@@ -1,14 +1,27 @@
 /**
  * Created by HP-ProBook on 22.01.2017.
  */
-app.controller('admin_courses', function($scope, services){
+app.controller('admin_courses', function($scope, services, $state){
+        $scope.add_course = false;
 
-        //services.createCourse({
-        //    title: 'Новий курс тест',
-        //    video: 'link',
-        //    html: 'опис нового курсу опис нового курсу опис нового курсу опис нового курсу опис нового курсу',
-        //    is_hidden: true
-        //});
+        $scope.course = {
+            title: '',
+            video: '',
+            html: '',
+            is_hidden: true
+        };
+        $scope.add_course_an = function () {
+            $scope.add_course ? $scope.add_course = false : $scope.add_course = true;
+        };
+        $scope.add_to_base = function () {
+            console.log($scope.course);
+            return;
+            if ($scope.course.title) {
+                services.createCourse($scope.course);
+            }
+
+        };
+
         function isEmpty(field, len){
             return field.length>len ? '+' : '-';
         }
@@ -30,6 +43,6 @@ app.controller('admin_courses', function($scope, services){
             var active = $scope.fullCourses.filter(function (c) {
                 return c.ID === course.id && c.title === course.title;
             });
-            if (active)  $state.go('edit_course', {data: active[0]});
+            if (active)  $state.go('admin_panel.edit_course', {course_data: active[0]});
         }
 });

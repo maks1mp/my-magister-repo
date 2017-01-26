@@ -17,6 +17,14 @@ class Courses {
            console.log(err);
         });
     }
+    static edit(request, response){
+        let data = request.body;
+        MySQL.editCourse(data).then(()=>{
+            response.send({status:true});
+        }).catch(function(){
+            response.send({status:false});
+        });
+    }
 }
 
 module.exports = Courses;

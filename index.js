@@ -29,7 +29,7 @@ app.post('/adminlogin', loginHandler.init);
 
 app.get('/get_courses', coursesHandler.get);
 app.post('/create_course', coursesHandler.create);
-
+app.post('/edit_course',coursesHandler.edit);
 
 app.listen(PORT, function () {
     console.log('Example app listening on port 3000!');
